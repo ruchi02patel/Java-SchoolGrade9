@@ -1,0 +1,21 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Adder{
+	public static void main(String[]args){
+		int first, second;
+		Scanner reader = new Scanner(System.in);
+		System.out.print("Please enter a number: ");
+		first = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Please enter another number: ");
+		second = reader.nextInt();
+		reader.nextLine();
+		addNumbers(first, second);
+	}
+
+	public static void addNumbers(int first, int second){
+		int sum = first+second;
+		System.out.println("The sum is "+sum+".");
+	}
+}
