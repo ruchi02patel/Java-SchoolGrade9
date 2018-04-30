@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class DateDisplay{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		String month;
+		int date, year;
+		System.out.print("Enter the month: ");
+		month = reader.nextLine();
+		System.out.print("\nEnter the day: ");
+		date = reader.nextInt();
+		reader.nextLine();
+		System.out.print("\nEnter the year: ");
+		year = reader.nextInt();
+		reader.nextLine();
+		printAmerican(month, date, year);
+		System.out.println(" ");
+		printEuropean(month, date, year);
+	}
+
+	public static void printAmerican(String month, int date, int year){
+		System.out.print("\nAmerican format: "+month+" "+date+", "+year);
+	}
+
+	public static void printEuropean(String month, int date, int year){
+		System.out.println("\nEuropean format: "+date+" "+month+" "+year);
+	}
+}
