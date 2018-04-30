@@ -1,0 +1,39 @@
+import java.awt.Graphics;
+import java.awt.Color;
+import javax.swing.*;
+public class Drawing extends JPanel
+{
+	JFrame frame;
+	public Drawing()
+	{
+		frame=new JFrame();
+		frame.add(this);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(1000,800);
+		frame.setVisible(true);
+
+	}
+
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		//your code goes here
+		g.setColor(Color.BLUE);
+		g.drawRect(10,10,40,80);
+		g.setColor(Color.MAGENTA);
+		g.fillRect(400,500,100,50);
+		g.drawOval(300,100,40,50);
+		int r = (int)(Math.random()*255);
+		int gr = (int)(Math.random()*255);
+		int b = (int)(Math.random()*255);
+		g.setColor(new Color(r,gr,b));
+		g.fillRect(100,100,200,400);
+	}
+
+	public static void main(String args[])
+	{
+		Drawing app=new Drawing();
+
+	}
+
+}
