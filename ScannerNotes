@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class ScannerNotes{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		System.out.print("What is your name? ");
+		String name = reader.nextLine();
+		System.out.println("Hello "+name);
+		System.out.print("What is the temparature? ");
+		int temp = reader.nextInt();
+		reader.nextLine();
+		System.out.print("What is the weather? ");
+		String weather = reader.nextLine();
+		System.out.print("Enter your GPA: ");
+		double gpa = reader.nextDouble();
+		reader.nextLine();
+		System.out.println("Hi "+name+"! It is "+temp+" degrees outside and "+weather+".");
+		System.out.println("It is a great day to get a "+gpa+".");
+	}
+}
