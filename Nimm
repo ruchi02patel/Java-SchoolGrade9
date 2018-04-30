@@ -1,0 +1,195 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Nimm{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		int player = (int)(Math.random()*2)+1;
+
+		System.out.print("Would you like to play against the computer(y or n)?");
+		String comp = reader.nextLine();
+
+		if ((comp).equals("y"))
+			System.out.println("Okay, you will be Player 1 and the computer will be Player 2.\n");
+
+		else if ((comp).equals("n"))
+			System.out.println("Okay, you will be Player 1 and your opponent will be Player 2.\n");
+
+		System.out.print("How many heaps (1, 2, 3)? ");
+		int heapnum = reader.nextInt();
+		System.out.println();
+
+		int heap1 = 0;
+		int heap2 = 0;
+		int heap3 = 0;
+		int whichHeap = 0;
+		int howMany = 0;
+
+		if (heapnum == 1){
+			heap1 = (int)(Math.random()*10)+1;
+			System.out.print("Size of heap 1: "+heap1+"\n");
+		}
+
+		else if (heapnum == 2){
+			heap1 = (int)(Math.random()*10)+1;
+			System.out.print("Size of heap 1: "+heap1+"\n");
+
+			heap2 = (int)(Math.random()*10)+1;
+			System.out.print("Size of heap 2: "+heap2+"\n");
+		}
+
+		else if (heapnum == 3){
+			heap1 = (int)(Math.random()*10)+1;
+			System.out.print("Size of heap 1: "+heap1+"\n");
+
+			heap2 = (int)(Math.random()*10)+1;
+			System.out.print("Size of heap 2: "+heap2+"\n");
+
+			heap3 = (int)(Math.random()*10)+1;
+			System.out.print("Size of heap 3: "+heap3+"\n");
+		}
+
+		System.out.println();
+
+		System.out.println("Player "+player+" will go first.\n");
+
+		do{
+
+			System.out.println("Player "+player+"'s turn");
+
+			Stars(heap1, heap2, heap3);
+
+			System.out.println();
+
+			if ((comp).equals("n")){
+				System.out.print("Pick from which heap? ");
+				whichHeap = reader.nextInt();
+				reader.nextLine();
+
+				System.out.print("How many? ");
+				howMany = reader.nextInt();
+				reader.nextLine();
+				System.out.println();
+			}
+
+			else if (((comp).equals("y"))&&(player == 1)){
+				System.out.print("Pick from which heap? ");
+				whichHeap = reader.nextInt();
+				reader.nextLine();
+
+				System.out.print("How many? ");
+				howMany = reader.nextInt();
+				reader.nextLine();
+				System.out.println();
+			}
+
+			else if (((comp).equals("y"))&&(player == 2)){
+				System.out.print("Pick from which heap? ");
+				whichHeap = (int)(Math.random()*heapnum)+1;
+				System.out.println(whichHeap);
+
+				System.out.print("How many? ");
+
+				if (whichHeap == 1)
+					howMany = (int)(Math.random()*heap1)+1;
+
+				else if (whichHeap == 2)
+					howMany = (int)(Math.random()*heap2)+1;
+
+				else if (whichHeap == 3)
+					howMany = (int)(Math.random()*heap3)+1;
+
+				System.out.println(howMany+"\n");
+			}
+
+
+			if (whichHeap == 1){
+				if (howMany > heap1){
+					System.out.println("Sorry, that's too many.\n");
+					player --;
+				}
+				else
+					heap1 -= howMany;
+				}
+
+			else if (whichHeap == 2){
+				if (howMany > heap2){
+					System.out.println("Sorry, that's too many.\n");
+					player --;
+				}
+				else
+					heap2 -= howMany;
+				}
+
+			else if (whichHeap == 3){
+				if (howMany > heap3){
+					System.out.println("Sorry, that's too many.\n");
+					player --;
+				}
+				else
+					heap3 -= howMany;
+				}
+
+			if ((heap1 == 0)&&(whichHeap == 1)){
+				System.out.println("Sorry, there's no more in Heap 1.\n");
+				player --;
+
+				if (howMany > heap1)
+					player ++;
+			}
+
+			else if ((heap2 == 0)&&(whichHeap == 2)){
+				System.out.println("Sorry, there's no more in Heap 2.\n");
+				player --;
+
+				if (howMany > heap2)
+					player ++;
+			}
+
+			else if ((heap3 == 0)&&(whichHeap == 3)){
+				System.out.println("Sorry, there's no more in Heap 3.\n");
+				player --;
+
+				if (howMany > heap3)
+					player ++;
+			}
+
+			if (whichHeap > 3){
+				System.out.println("Sorry, there's no Heap "+whichHeap+".\n");
+				player --;
+			}
+			player = PlayerChoice(player);
+
+			}while((heap1 != 0)||(heap2 != 0)||(heap3 != 0));//do loop end
+
+		System.out.println("Player "+player+" wins!");
+
+	}//main method
+
+	public static int PlayerChoice(int player){
+		player ++;
+		if (player%2 == 1)
+			player = 1;
+		else if (player%2 == 0)
+			player = 2;
+		return player;
+
+	}//PlayerChoice
+
+	public static void Stars(int heap1, int heap2, int heap3){
+		System.out.print("Heaps: 1:");
+		for (int h1 = 0; h1 < heap1; h1++)
+			System.out.print("*");
+
+		System.out.print(" 2:");
+		for (int h2 = 0; h2 < heap2; h2++)
+			System.out.print("*");
+
+		System.out.print(" 3:");
+		for (int h3 = 0; h3 < heap3; h3++)
+			System.out.print("*");
+
+		return;
+	}//Stars
+
+}//ending
