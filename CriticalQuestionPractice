@@ -1,0 +1,182 @@
+import java.lang.Math;
+import java.util.Scanner;
+
+public class CriticalQuestionPractice{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+
+		System.out.println("Number 1");
+		System.out.println("Hello World!");
+
+		System.out.println("\nNumber 2");
+		System.out.println("*****\n****\n***\n**\n*\n");
+
+		System.out.println("Number 3");
+		for (int i = 5; i > 0; i--){
+			for (int j = 0; j < i; j++)
+				System.out.print("*");
+			System.out.println();
+		}
+
+		System.out.println("\nNumber 4");
+		for (int i = 1; i < 9; i++){
+			for (int j = 0; j < i; j++){
+				System.out.print("*");
+				if (j%2 == 0)
+					j++;
+			}
+			System.out.println(i);
+		}
+
+		System.out.println("\nNumber 5");
+		System.out.println((int)(Math.random()*8)+56);
+
+		System.out.println("\nNumber 6");
+		int average6 = 0;
+		int num6 = 0;
+		for (int i = 1; i <= 10; i++){
+			num6 = (int)(Math.random()*67)+6;
+			System.out.print(num6+" ");
+			average6 += num6;
+		}
+		System.out.println("\nAverage: "+(average6/10));
+
+		System.out.println("\nNumber 7");
+		System.out.print("Numerator: ");
+		int numer = reader.nextInt();
+		System.out.print("Denominator: ");
+		int denom = reader.nextInt();
+		int GCF = 1;
+
+		for (int i = 1; i <= denom; i++){
+			if ((numer%i == 0)&&(denom%i == 0))
+				GCF = i;
+		}
+
+		numer = (numer/GCF);
+		denom = (denom/GCF);
+		System.out.println("Fraction: "+numer+"/"+denom);
+
+		System.out.println("\nNumber 8");
+
+		System.out.print("Enter length (in feet): ");
+		double length8 = reader.nextDouble();
+		reader.nextLine();
+		System.out.print("Enter width (in feet): ");
+		double width8 = reader.nextDouble();
+		reader.nextLine();
+		double acres = ((length8*width8)/40560);
+		System.out.println("Area measure is "+(length8*width8)+" square feet or "+acres+" acres.");
+		System.out.println("Property tax is $"+(acres*5000));
+		System.out.println("Cost Per Month is $"+((acres*5000)/12));
+
+		System.out.println("\nNumber 9");
+
+		int dice1;
+		int dice2;
+		int rollnum = 0;
+		int roll;
+		int point = 0;
+		boolean end = false;
+		int win = 0;
+		int lose = 0;
+
+		while (end == false){
+			rollnum++;
+
+			System.out.print("Roll "+rollnum+": ");
+			dice1 = ((int)(Math.random()*6)+1);
+			dice2 = ((int)(Math.random()*6)+1);
+			roll = dice1 + dice2;
+			System.out.println(roll);
+
+			if (rollnum == 1){
+				if ((roll == 7)||(roll == 11)){
+					System.out.println("You win!");
+					end = true;
+					win++;
+				}
+
+				else if ((roll == 2)||(roll == 3)||(roll == 12)){
+					System.out.println("You lose!");
+					end = true;
+					lose++;
+				}
+
+				else{
+					point = roll;
+					roll = 0;
+				}
+			}
+
+			else{
+				if (roll == point){
+					System.out.println("You win!");
+					end = true;
+					win++;
+				}
+
+				else if (roll == 7){
+					System.out.println("You lose!");
+					end = true;
+					lose++;
+				}
+			}
+		}//while end
+
+		System.out.println("\nNumber 10");
+
+		int games = 0;
+		double probability;
+
+		while (games < 10000){
+			games++;
+			end = false;
+			point = 0;
+			rollnum = 0;
+
+			while (end == false){
+				rollnum++;
+
+				dice1 = ((int)(Math.random()*6)+1);
+				dice2 = ((int)(Math.random()*6)+1);
+				roll = dice1 + dice2;
+
+				if (rollnum == 1){
+					if ((roll == 7)||(roll == 11)){
+						end = true;
+						win++;
+					}
+
+					else if ((roll == 2)||(roll == 3)||(roll == 12)){
+						end = true;
+						lose++;
+					}
+
+					else{
+						point = roll;
+						roll = 0;
+					}
+				}
+
+				else{
+					if (roll == point){
+						end = true;
+						win++;
+					}
+
+					else if (roll == 7){
+						end = true;
+						lose++;
+					}
+				}
+			}//innerWhile
+		}//outerWhile
+
+		probability = (win/10000.0);
+
+		System.out.println("\nTotal Wins: "+win);
+		System.out.println("Total Losses: "+lose);
+		System.out.println("Estimated Probability of Winning: "+probability);
+	}
+}
