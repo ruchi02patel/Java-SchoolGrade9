@@ -1,0 +1,12 @@
+public class PracticeVariable{
+	public static void main(String[]args){
+		String bobSmith = "Bob Smith";
+		int oneHundred = 100;
+		int eightyNumber = 80;
+		int ninetyNumber = 90;
+		System.out.print("Name: "+bobSmith+"\n");
+		System.out.print("Test 1: "+oneHundred+"\n");
+		System.out.print("Test 2: "+eightyNumber+"\n");
+		System.out.print("Test 3: "+ninetyNumber+"\n");
+	}
+}
