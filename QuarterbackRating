@@ -1,0 +1,18 @@
+public class QuarterbackRating{
+	public static void main(String[]args){
+		String name = "Russell Wilson";
+		String team = "SEA";
+		double completions = 329;
+		double attempts = 483;
+		double yards = 4024;
+		double touchdowns = 34;
+		double interceptions = 8;
+		double a = (((completions/attempts)*100)-30)/20;
+		double b = ((touchdowns/attempts)*100)/5;
+		double c = (9.5 - ((interceptions/attempts)*100))/4;
+		double d = ((yards/attempts)-3)/4;
+		double ratings = (a+b+c+d)/.06;
+		System.out.println("Name\t\tTeam\tComp\tAtt\tYDS\tTD\tINT\tRating");
+		System.out.println(name+"\t"+team+"\t"+(int)completions+"\t"+(int)attempts+"\t"+(int)yards+"\t"+(int)touchdowns+"\t"+(int)interceptions+"\t"+ratings);
+	}
+}
