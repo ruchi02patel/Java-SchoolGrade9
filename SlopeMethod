@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class SlopeMethod{
+	public static void main(String[]args){
+		int x1, y1, x2, y2;
+		Scanner reader = new Scanner(System.in);
+		System.out.print("Enter x1: ");
+		x1 = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Enter y1: ");
+		y1 = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Enter x2: ");
+		x2 = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Enter y2: ");
+		y2 = reader.nextInt();
+		reader.nextLine();
+		slope(x1, y1, x2, y2);
+		reader.nextLine();
+	}
+	public static void slope(int x, int xx, int y, int yy){
+		System.out.print("The slope between ("+x+","+y+") and ("+xx+","+yy+") is "+(yy-y)+"/"+(xx-x));
+	}
+}
