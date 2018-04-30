@@ -1,0 +1,36 @@
+public class Lanterns{
+	public static void main(String[]args){
+		threeStars();
+		System.out.print("\n");
+		threeStars();
+		lines();
+		bigStars();
+		threeStars();
+		System.out.print("\n");
+		threeStars();
+		smallStars();
+		lines();
+		lines();
+		smallStars();
+		smallStars();
+	}
+	public static void threeStars(){
+		System.out.println("    *****");
+		System.out.println("  *********");
+		System.out.println("*************");
+	}
+
+	public static void lines(){
+		System.out.println("* | | | | | *");
+	}
+
+	public static void smallStars(){
+		System.out.println("    *****");
+	}
+
+	public static void bigStars(){
+		System.out.println("*************");
+	}
+
+
+}
