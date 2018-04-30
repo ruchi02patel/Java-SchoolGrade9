@@ -1,0 +1,28 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class MilitaryTime{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		int time1, time2;
+		System.out.print("Please enter the first time: ");
+		time1 = reader.nextInt();
+		System.out.print("Please enter the second time: ");
+		time2 = reader.nextInt();
+		reader.nextLine();
+		timeDifference(time1, time2);
+	}
+
+	public static void timeDifference(int time1, int time2){
+		int hours1, minutes1, hours2, minutes2;
+		hours1 = Math.abs(1200-time1);
+		hours2 = Math.abs(1200-time2);
+		int hours10 = hours1/100;
+		int hours20 = hours2/100;
+		int hours = hours10+hours20;
+		minutes1 = hours1%100;
+		minutes2 = hours2%100;
+		int minutes = minutes1+minutes2;
+		System.out.println(hours+" hours and "+minutes+" minutes ");
+	}
+}
