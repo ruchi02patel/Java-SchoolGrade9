@@ -1,0 +1,300 @@
+import java.util.Scanner;
+import java .lang.Math;
+
+public class ArrayPractice1{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+
+		/*System.out.println("Do Now\n");
+
+		double aveHeight = 0;
+
+		String[] name = new String[10];
+		int[] age = new int[10];
+		int[] height = new int[10];
+
+		for (int i = 0; i < name.length; i++){
+			System.out.print("Name "+(i+1)+": ");
+			name[i] = reader.nextLine();
+			System.out.print("Age "+(i+1)+": ");
+			age[i] = reader.nextInt();
+			reader.nextLine();
+			System.out.print("Height "+(i+1)+"(inches): ");
+			height[i] = reader.nextInt();
+			reader.nextLine();
+			System.out.println();
+
+			aveHeight += height[i];
+		}
+
+		aveHeight /= 10.0;
+
+		for (int j = 0; j < name.length; j++){
+			if (height[j] > aveHeight)
+				System.out.println(name[j]+" "+age[j]+" "+height[j]);
+		}
+*/
+		//number1
+
+		//make deck
+		int[] cardValue = new int [52];
+		String[] suit = new String[52];
+
+		for (int i = 0; i < 52; i++){
+			if ((i >= 0)&&(i < 13)){
+				cardValue[i] = (i+1);
+				suit[i] = "Hearts";
+			}
+			else if ((i >= 13)&&(i < 26)){
+				cardValue[i] = (i-12);
+				suit[i] = "Spades";
+			}
+			else if ((i >= 26)&&(i < 39)){
+				cardValue[i] = (i-25);
+				suit[i] = "Diamonds";
+			}
+			else if ((i >= 39)&&(i < 52)){
+				cardValue[i] = (i-38);
+				suit[i] = "Clubs";
+			}
+		}
+
+		//number2
+		System.out.println("\n");
+
+		//print deck
+		int j = 0;
+		for (int i = 0; i < cardValue.length; i++){
+			if (cardValue[i] == 1)
+				System.out.print("Ace(1) of "+suit[i]+"\t");
+			else if (cardValue[i] == 11)
+				System.out.print("Jack(11) of "+suit[i]+"\t");
+			else if (cardValue[i] == 12)
+				System.out.print("Queen(12) of "+suit[i]+"\t");
+			else if (cardValue[i] == 13)
+				System.out.print("King(13) of "+suit[i]+"\t");
+			else
+				System.out.print(cardValue[i]+" of "+suit[i]+"\t");
+			if ((j+1)%5 == 0)
+				System.out.println();
+			j++;
+		}
+
+		System.out.println();
+
+		int p1wincount = 0;
+		int p2wincount = 0;
+		int games = 1;
+
+		do{
+
+			int p1 = 0;
+			int p2 = 0;
+
+			System.out.println("\nGAME "+games);
+
+			//number 3
+			System.out.println();
+
+			//shuffle deck
+			int shuffleTimes = (int)(Math.random()*50)+50;
+			System.out.println("The deck will shuffle "+shuffleTimes+" times.\n");
+			for (int k = 0; k < shuffleTimes; k++){
+				int cardloc1 = (int)(Math.random()*51);
+				int cardloc2 = (int)(Math.random()*51);
+				int tempcard = cardValue[cardloc1];
+				String tempsuit = suit[cardloc1];
+				cardValue[cardloc1] = cardValue[cardloc2];
+				suit[cardloc1] = suit[cardloc2];
+				cardValue[cardloc2] = tempcard;
+				suit[cardloc2] = tempsuit;
+			}
+
+			//print shuffled deck
+			j = 0;
+			for (int i = 0; i < 52; i++){
+				if (cardValue[i] == 1)
+					System.out.print("Ace(1) of "+suit[i]+"\t");
+				else if (cardValue[i] == 11)
+					System.out.print("Jack(11) of "+suit[i]+"\t");
+				else if (cardValue[i] == 12)
+					System.out.print("Queen(12) of "+suit[i]+"\t");
+				else if (cardValue[i] == 13)
+					System.out.print("King(13) of "+suit[i]+"\t");
+				else
+					System.out.print(cardValue[i]+" of "+suit[i]+"\t");
+
+				if ((j+1)%5 == 0)
+					System.out.println();
+				j++;
+			}
+
+			//number4
+			System.out.println("\n");
+
+			//create hands
+			int[] valuep1 = new int[5];
+			int[] valuep2 = new int[5];
+			String[] suitp1 = new String[5];
+			String[] suitp2 = new String[5];
+
+			//deal cards into hands
+			for (int d = 0; d < 5; d++){
+				valuep1[d] = cardValue[2*d];
+				suitp1[d] = suit[2*d];
+
+				valuep2[d] = cardValue[(2*d)+1];
+				suitp2[d] = suit[(2*d)+1];
+			}
+
+			//print p1 hand
+			System.out.println("Player 1's hand");
+			for (int i = 0; i < 5; i++){
+				if (valuep1[i] == 1)
+					System.out.println("Ace(1) of "+suitp1[i]);
+				else if (valuep1[i] == 11)
+					System.out.println("Jack(11) of "+suitp1[i]);
+				else if (valuep1[i] == 12)
+					System.out.println("Queen(12) of "+suitp1[i]);
+				else if (valuep1[i] == 13)
+					System.out.println("King(13) of "+suitp1[i]);
+				else
+					System.out.println(valuep1[i]+" of "+suitp1[i]);
+			}
+
+			//print p2 hand
+			System.out.println("\nPlayer 2's hand\n");
+			for (int i = 0; i < 5; i++){
+				if (valuep2[i] == 1)
+					System.out.println("Ace(1) of "+suitp2[i]);
+				else if (valuep2[i] == 11)
+					System.out.println("Jack(11) of "+suitp2[i]);
+				else if (valuep2[i] == 12)
+					System.out.println("Queen(12) of "+suitp2[i]);
+				else if (valuep2[i] == 13)
+					System.out.println("King(13) of "+suitp2[i]);
+				else
+					System.out.println(valuep2[i]+" of "+suitp2[i]);
+			}
+
+			//number 5
+			System.out.println("\n");
+
+			//making ace highest
+			for (int i = 0; i < 5; i++){
+				if (valuep1[i] == 1)
+					valuep1[i] = 14;
+
+				if (valuep2[i] == 1)
+					valuep2[i] = 14;
+			}
+
+			//sort hands
+			for (int i = 0; i < valuep1.length; i++){
+				int minIndex1 = i;
+				int minIndex2 = i;
+				String minSuit1 = " ";
+				String minSuit2 = " ";
+
+				for (int k = i+1; k < valuep1.length; k++){
+					if (valuep1[k] < valuep1[minIndex1]){
+						minIndex1 = k;
+						minSuit1 = suitp1[minIndex1];
+					}
+					if (valuep2[k] < valuep2[minIndex2]){
+						minIndex2 = k;
+						minSuit2 = suitp2[minIndex1];
+					}
+				}
+
+				int tempvalue1 = valuep1[i];
+				String tempsuit1 = suitp1[i];
+				int tempvalue2 = valuep2[i];
+				String tempsuit2 = suitp2[i];
+
+				valuep1[i] = valuep1[minIndex1];
+				suitp1[i] = minSuit1;
+				valuep1[minIndex1] = tempvalue1;
+				suitp1[minIndex1] = tempsuit1;
+
+				valuep2[i] = valuep2[minIndex2];
+				suitp2[i] = minSuit2;
+				valuep2[minIndex2] = tempvalue2;
+				suitp2[minIndex2] = tempsuit2;
+			}
+
+			//print sorted hands
+			System.out.println("Player 1's hand (in order)");
+			for (int i = 0; i < 5; i++){
+				if (valuep1[i] == 14)
+					System.out.println("Ace(1) of "+suitp1[i]);
+				else if (valuep1[i] == 11)
+					System.out.println("Jack(11) of "+suitp1[i]);
+				else if (valuep1[i] == 12)
+					System.out.println("Queen(12) of "+suitp1[i]);
+				else if (valuep1[i] == 13)
+					System.out.println("King(13) of "+suitp1[i]);
+				else
+					System.out.println(valuep1[i]+" of "+suitp1[i]);
+			}
+
+			System.out.println("\nPlayer 2's hand (in order)");
+			for (int i = 0; i < 5; i++){
+				if (valuep2[i] == 14)
+					System.out.println("Ace(1) of "+suitp2[i]);
+				else if (valuep2[i] == 11)
+					System.out.println("Jack(11) of "+suitp2[i]);
+				else if (valuep2[i] == 12)
+					System.out.println("Queen(12) of "+suitp2[i]);
+				else if (valuep2[i] == 13)
+					System.out.println("King(13) of "+suitp2[i]);
+				else
+					System.out.println(valuep2[i]+" of "+suitp2[i]);
+			}
+
+			//compare hands
+			for (int i = 4; i >= 0; i--){
+				if (valuep1[i] > valuep2[i]){
+					p1++;
+					i = 0;
+				}
+				else if (valuep1[i] < valuep2[i]){
+					p2++;
+					i = 0;
+				}
+				else if (valuep1[i] == valuep2[i]){
+					p1++;
+					p2++;
+				}
+			}
+
+			//determine winner of each game
+			if (p1 > p2){
+				p1wincount++;
+				System.out.println("Player 1 wins game "+games+"!");
+			}
+			else if (p2 > p1){
+				p2wincount++;
+				System.out.println("Player 2 wins game "+games+"!");
+			}
+			else if (p1 == p2)
+				System.out.println("Player 1 and 2 tied game "+games+"!");
+
+			games++;
+
+		}while(games <= 5);
+
+		//determine winner
+
+		System.out.println("\nGames won by Player 1: "+p1wincount);
+		System.out.println("Games won by Player 2: "+p2wincount);
+
+		if (p1wincount > p2wincount)
+			System.out.println("Player 1 is the winner!");
+		else if (p2wincount > p1wincount)
+			System.out.println("Player 2 is the winner!");
+		else
+		System.out.println("It's a tie!");
+
+	}//mainEnd
+}
