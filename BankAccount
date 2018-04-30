@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class BankAccount{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		int start, dep, with;
+		System.out.print("Balance: ");
+		start = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Withdrawal: ");
+		with = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Deposit: ");
+		dep = reader.nextInt();
+		reader.nextLine();
+		System.out.println("Final Balance: "+deposit(start, dep, with));
+	}
+
+	public static int withdrawal(int d, int with){
+		int w = d-with;
+		return w;
+	}
+
+	public static int deposit(int start, int dep, int with){
+		int d = start+dep;
+		return withdrawal(d, with);
+	}
+
+}
