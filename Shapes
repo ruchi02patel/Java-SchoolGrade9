@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Shapes{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		int rectlength, rectwidth, trapbase1, trapbase2, trapheight;
+		System.out.print("Please enter the length of your rectangle: ");
+		rectlength = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Please enter the width of your rectangle: ");
+		rectwidth = reader.nextInt();
+		reader.nextLine();
+		perimeter(rectlength, rectwidth);
+		System.out.print("Please enter the first base of your trapezoid: ");
+		trapbase1 = reader.nextInt();
+		reader.nextLine();System.out.print("Please enter the second base of your trapezoid: ");
+		trapbase2 = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Please enter the height of your trapezoid: ");
+		trapheight = reader.nextInt();
+		reader.nextLine();
+		area(trapbase1, trapbase2, trapheight);
+	}
+	public static int perimeter(int rl, int rw){
+		int p = 2*rl + 2*rw;
+		System.out.println("The perimeter of your rectangle is "+p+" units.\n");
+		return p;
+	}
+	public static double area(int tb1, int tb2, int th){
+		double a = (.5)*(tb1+tb2)*th;
+		System.out.println("The area of your trapezoid is "+a+" square units.");
+		return a;
+	}
+}
