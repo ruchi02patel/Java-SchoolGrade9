@@ -1,0 +1,35 @@
+public class WholeLottaOps{
+	public static void main(String[]args){
+
+		int a = 0;
+		int b = 2;
+		int c = -6;
+		int d = (int)32.6;
+		double e = 9;
+		double f = 10.0;
+		double g = a+b;
+		double h = 27.1;
+		String words = "Sorry ";
+		String not = " ";
+
+		a++;
+		c *= a;
+		d /= 8;
+
+		System.out.println(e);
+		System.out.println(words+not+words+"\n");
+		 d *= 3;
+		 h /= 0.1;
+		 not += "NOT ";
+
+		 System.out.println(words+not+words+"\n");
+		 System.out.print("\t"+d+"d");
+		 System.out.print(h+" "+a+" "+g);
+		 System.out.println(b+f+e);
+
+		 a = (1/2)*6%5+3/2*8;
+		 System.out.println(a);
+		 e = (1.0/2)*6%5+3/2*8;
+		 System.out.println(e);
+	}
+}
