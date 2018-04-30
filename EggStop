@@ -1,0 +1,33 @@
+public class EggStop{
+	public static void main(String[]args){
+		fullEgg();
+		System.out.println("\n");
+		fullEgg();
+		dash();
+		System.out.println("\n");
+		top3();
+		stop();
+		bottom2();
+	}
+
+	public static void top3(){
+		System.out.println("  ______");
+		System.out.println(" /      \\");
+		System.out.println("/        \\");
+	}
+	public static void bottom2(){
+		System.out.println("\\        /");
+		System.out.println(" \\______/");
+	}
+	public static void dash(){
+		System.out.println("+--------+");
+	}
+
+	public static void fullEgg(){
+		top3();
+		bottom2();
+	}
+	public static void stop(){
+		System.out.println("|  STOP  |");
+	}
+}
