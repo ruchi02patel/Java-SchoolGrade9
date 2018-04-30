@@ -1,0 +1,25 @@
+public class Day4Notes{
+	public static void main(String[]args){
+		int i = 2;
+		int j = 11;
+		double d = 4.1;
+		double e = 6.0;
+
+		System.out.println(i-j);
+		System.out.println(j+d);
+		System.out.println(j/i);
+		System.out.println(j%i);
+		System.out.println((int)d+i);
+
+		i = j-3;
+		System.out.println(i);
+		j = j+1;
+		System.out.println(j);
+		//i = e-3; <<doesn't work, gives an error
+		d = e*3;
+		System.out.println(d);
+		e = j/4;
+		System.out.println(e);
+		//int k = d%3; doesn't work bc d is double and % only works with int
+	}
+}
