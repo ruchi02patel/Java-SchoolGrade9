@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class TwoFer{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		System.out.print("Please enter a number: ");
+		double num = reader.nextDouble();
+		reader.nextLine();
+		System.out.println("Would you like to");
+		System.out.println("(1) add 2 to the number,");
+		System.out.println("(2) subtract 2 from the number,");
+		System.out.println("(3) multiply the number by 2,");
+		System.out.println("(4) divide the number by 2, or");
+		System.out.println("(5) raise the number to the second power.");
+		System.out.print("Choice: ");
+		int choice = reader.nextInt();
+		if (choice == 1)
+		{
+			double sum1 = num+2;
+			System.out.println("The result when adding 2 to "+num+" is "+sum1+".");
+		}
+		if (choice == 2)
+		{
+			double diff2 = num-2;
+			System.out.println("The result when subracting 2 from "+num+" is "+diff2+".");
+		}
+		if (choice == 3)
+		{
+			double mult3 = num*2;
+			System.out.println("The result when multiplying 2 to "+num+" is "+mult3+".");
+		}
+		if (choice == 4)
+		{
+			double div4 = num/2;
+			System.out.println("The result when dividing "+num+" by 2 is "+div4+".");
+		}
+		if (choice == 5)
+		{
+			double sqr5 = num*num;
+			System.out.println("The result when raising "+num+" to the second power is "+sqr5+".");
+		}
+	}
+}
