@@ -1,0 +1,10 @@
+public class LetsSimplify{
+	public static void main(String[]args){
+		String myName = "Ruchi Patel";
+		int oneNumber = 2;
+		int anotherNumber = 7;
+		System.out.println(myName);
+		System.out.println(oneNumber);
+		System.out.println(anotherNumber);
+	}
+}
