@@ -1,0 +1,24 @@
+public class DonutLeftovers{
+	public static void main(String[]args){
+		int sizea = 100;
+		int sizeb = sizea/12;
+		int sizec = sizea%12;
+		System.out.print(sizea+" donuts\n");
+		System.out.print("\n"+sizeb+" dozen\n");
+		System.out.print("\n"+sizec+" left over\n");
+
+		sizea = 63;
+		sizeb = sizea/12;
+		sizec = sizea%12;
+		System.out.print("\n\n"+sizea+" donuts\n");
+		System.out.print("\n"+sizeb+" dozen\n");
+		System.out.print("\n"+sizec+" left over\n");
+
+		sizea = 11;
+		sizeb = sizea/12;
+		sizec = sizea%12;
+		System.out.print("\n\n"+sizea+" donuts\n");
+		System.out.print("\n"+sizeb+" dozen\n");
+		System.out.print("\n"+sizec+" left over\n");
+	}
+}
