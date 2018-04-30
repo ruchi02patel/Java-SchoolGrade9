@@ -1,0 +1,24 @@
+public class SnoopyInMailbox{
+	public static void main(String[]args){
+		System.out.print("       ,________________\n");
+		System.out.print("      /  \\              \\\n");
+		System.out.print("      |.-|              |\n");
+		System.out.print("    .-\', |   ,_______   |\n");
+		System.out.print("   /     |    \"\"\"\"\"| |  |\n");
+		System.out.print("  O\\__.--|         \'-\'  |\n");
+		System.out.print(" ,=`    _|______________|\n");
+		System.out.print(" \',,,==` `~~~~|||~~~~~~~`\n");
+		System.out.print("  `           |||\n");
+		System.out.print("              |||\n");
+		System.out.print("              |||\n");
+		System.out.print("              |||\n");
+		System.out.print("              |||\n");
+		System.out.print("              |||\n");
+		System.out.print("              |||\n");
+		System.out.print("              |||\n");
+		System.out.print("           \\\\ |||,///\n");
+ 		System.out.print("    . ..::::\\\\|||///::::....\n");
+		System.out.print("  \'\' \' \"\" \' \'\"\" \"\" \"\" \'\' \"\"\' \"\'\'\n");
+		System.out.print(" \' \'\' \"\" \' \"\' \' \" \'\"\'  \' \"\" \" \'\"\n");
+	}
+}
