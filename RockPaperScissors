@@ -1,0 +1,157 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class RockPaperScissors{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		int ywins = 0;
+		int cwins = 0;
+		System.out.print("Enter a RPS throw: ");
+		String RPS = reader.nextLine();
+		int comp = (int)(Math.random()*3)+1;
+		System.out.print("Computer selects: ");
+
+		switch(comp){
+			case 1: System.out.println("rock");
+				switch(RPS){
+					case "rock": System.out.println("Tie!");
+					break;
+					case "paper": System.out.println("You win!");
+					ywins ++;
+					break;
+					case "scissors": System.out.println("Computer wins!");
+					cwins ++;
+					break;
+				}
+			break;
+
+			case 2: System.out.println("paper");
+				switch(RPS){
+					case "rock": System.out.println("Computer wins!");
+					cwins ++;
+					break;
+					case "paper": System.out.println("Tie!");
+					break;
+					case "scissors": System.out.println("You win!");
+					ywins ++;
+					break;
+				}
+			break;
+
+			case 3: System.out.println("scissors");
+				switch (RPS){
+					case "rock": System.out.println("You win!");
+					ywins ++;
+					break;
+					case "paper": System.out.println("Computer wins!");
+					cwins ++;
+					break;
+					case "scissors": System.out.println("Tie!");
+					break;
+				}
+			break;
+		}
+		System.out.print("\n");
+
+		System.out.print("Enter a RPS throw: ");
+		String RPS2 = reader.nextLine();
+		int comp2 = (int)(Math.random()*3)+1;
+		System.out.print("Computer selects: ");
+
+		switch(comp2){
+			case 1: System.out.println("rock");
+				switch(RPS2){
+					case "rock": System.out.println("Tie!");
+					break;
+					case "paper": System.out.println("You win!");
+					ywins ++;
+					break;
+					case "scissors": System.out.println("Computer wins!");
+					cwins ++;
+					break;
+				}
+			break;
+
+			case 2: System.out.println("paper");
+				switch(RPS2){
+					case "rock": System.out.println("Computer wins!");
+					cwins ++;
+					break;
+					case "paper": System.out.println("Tie!");
+					break;
+					case "scissors": System.out.println("You win!");
+					ywins ++;
+					break;
+				}
+			break;
+
+			case 3: System.out.println("scissors");
+				switch (RPS2){
+					case "rock": System.out.println("You win!");
+					ywins ++;
+					break;
+					case "paper": System.out.println("Computer wins!");
+					cwins ++;
+					break;
+					case "scissors": System.out.println("Tie!");
+					break;
+				}
+			break;
+		}
+		System.out.print("\n");
+
+		System.out.print("Enter a RPS throw: ");
+		String RPS3 = reader.nextLine();
+		int comp3 = (int)(Math.random()*3)+1;
+		System.out.print("Computer selects: ");
+
+		switch(comp3){
+			case 1: System.out.println("rock");
+				switch(RPS3){
+					case "rock": System.out.println("Tie!");
+					break;
+					case "paper": System.out.println("You win!");
+					ywins ++;
+					break;
+					case "scissors": System.out.println("Computer wins!");
+					cwins ++;
+					break;
+				}
+			break;
+
+			case 2: System.out.println("paper");
+				switch(RPS3){
+					case "rock": System.out.println("Computer wins!");
+					cwins ++;
+					break;
+					case "paper": System.out.println("Tie!");
+					break;
+					case "scissors": System.out.println("You win!");
+					ywins ++;
+					break;
+				}
+			break;
+
+			case 3: System.out.println("scissors");
+				switch (RPS3){
+					case "rock": System.out.println("You win!");
+					ywins ++;
+					break;
+					case "paper": System.out.println("Computer wins!");
+					cwins ++;
+					break;
+					case "scissors": System.out.println("Tie!");
+					break;
+				}
+			break;
+		}
+		System.out.print("\n");
+
+		if (ywins > cwins)
+			System.out.println("You win the game!");
+		else if (ywins < cwins)
+			System.out.println("Computer wins the game!");
+		else if (ywins == cwins)
+			System.out.println("You tied with Computer!");
+	}
+}
