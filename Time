@@ -1,0 +1,21 @@
+public class Time{
+	public static void main(String[]args){
+		int totalSeconds = (int)(Math.random()*(1000001-500))+500;
+		int days = (totalSeconds/86400);
+		int hours = ((totalSeconds%86400)/3600);
+		int minutes = (((totalSeconds%86400)%3600)/60);
+		int seconds = ((((totalSeconds%86400)%3600)%60));
+
+		//60 seconds in miunte
+		//60 minutes in an hour; 3600 seconds in a hour
+		//24 hours in a day
+		//1 day = 24hrs = 60*24 minutes = 60*60*24 seconds = 86400 seconds in a day
+
+		System.out.println("Total seconds: "+totalSeconds);
+		System.out.print(days+" days : ");
+		System.out.print(hours+" hours : ");
+		System.out.print(minutes+" minutes : ");
+		System.out.println(seconds+" seconds");
+
+	}
+}
