@@ -1,0 +1,28 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class WhileLoops5{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+
+		int sum = 0;
+		int score = 0;
+		int count = -1;
+
+		do{
+			sum += score;
+
+			System.out.print("Enter score (-1) to quit: ");
+			score = reader.nexT=tLine();
+			while((score < -1) || (score > 100) || (score == 0)){
+				System.out.println("BAD!");
+				System.out.print("Enter score (-1) to quit: ");
+				score = reader.nextInt();
+			}
+			count++;
+		}
+		while (score != -1){
+			System.out.print("Average: "+(sum/count));
+		}
+	}
+}
