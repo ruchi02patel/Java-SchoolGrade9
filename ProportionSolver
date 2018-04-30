@@ -1,0 +1,20 @@
+public class ProportionSolver{
+	public static void main(String[]args){
+		int a = (int)(Math.random()*44)+2;
+		int b = (int)(Math.random()*44)+2;
+		int c = (int)(Math.random()*44)+2;
+		double d = (b*c)/a;
+		System.out.println(" a\t c");
+		System.out.println("---  =  ---");
+		System.out.println(" b\t d\n");
+		System.out.println("Initial Values:");
+		System.out.println("a = "+a);
+		System.out.println("b = "+b);
+		System.out.println("c = "+c+"\n");
+		System.out.println(" "+a+"\t"+c);
+		System.out.println("---  =  ---");
+		System.out.println(" "+b+"\td\n");
+		System.out.println("Equation: ");
+		System.out.println("d = "+d);
+	}
+}
