@@ -1,0 +1,18 @@
+public class RandomNumbersPractice2{
+	public static void main(String[]args){
+		int numOne = (int)(Math.random()*21)+1;
+		int numTwo = (int)(Math.random()*13)+6;
+		int numThree = (int)(Math.random()*177)+38;
+		int numSum = numOne+numTwo+numThree;
+		double numAverage = (double)numSum/3;
+		int quotientOneToTwo = numOne/numTwo;
+		int remainderThreeToOne = numThree%numOne;
+		System.out.println("First Num: "+numOne);
+		System.out.println("Second Num: "+numTwo);
+		System.out.println("Third Num: "+numThree);
+		System.out.println("Sum of Nums: "+numSum);
+		System.out.println("Average of Nums: "+numAverage);
+		System.out.println("Quotient of first/second: "+quotientOneToTwo);
+		System.out.println("Remainder of third mod first: "+remainderThreeToOne);
+	}
+}
