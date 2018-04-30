@@ -1,0 +1,46 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class SwitchRandomNumber{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Please select one of the following options:");
+		System.out.println("a. 0-10 inclusive");
+		System.out.println("b. 1-5 inclusive");
+		System.out.println("c. 10-80 inclusive");
+		System.out.println("d. -10-+15 inclusive");
+		System.out.print("Your option: ");
+		String choice = reader.nextLine();
+		reader.nextLine();
+		switch (choice){
+			case "A":
+				int numA = (int)(Math.random()*11);
+				if ((numA > 4)&&(numA != 8)&&(numA % 2 == 0))
+							System.out.println("A DID IT!");
+				else
+					System.out.println("A DIDN'T");
+			break;
+			case "B":
+				int numB = (int)(Math.random()*5)+1;
+				if ((numB % 2 == 1)&&(numB < 4))
+					System.out.println("B CRAZY!");
+				else
+					System.out.println("B NOT SO CRAZY!");
+			break;
+			case "C":
+				int numC = (int)(Math.random()*71)+10;
+				if (((numC % 10)% 2 == 0)&&(numC % 2 == 1)&&(numC % 3 == 0))
+					System.out.println("C YA!");
+				else
+					System.out.println("NO C YA!");
+			break;
+			case "D":
+			int numD = (int)(Math.random()*26)-10;
+				if ((numD <= 7)&&(numD >= -7)&&((numD*numD) % 2 == 0))
+					System.out.println("D-RIFIC!");
+				else
+					System.out.println("D-ERRIBLE");
+			break;
+		}
+	}
+}
