@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class IfStatements{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		double price=0.0;
+		System.out.println("Welcome to the Boardwalk Snack Shop!");
+		System.out.print("Would you like to drink (y or n)? ");
+		String drink = reader.nextLine();
+		if (drink.equalsIgnoreCase("n"))
+			System.out.println("Ok, see you next time!");
+		else if (drink.equalsIgnoreCase("y")){
+			System.out.print("Would you like (s)oda or (l)emonade? ");
+			String dchoice = reader.nextLine();
+		if (dchoice.equalsIgnoreCase("s"))
+			price = 2.25;
+		else if (dchoice.equalsIgnoreCase("l"))
+			price = 3.50;
+		System.out.print("Would you like to order food (y or n)? ");
+		String food = reader.nextLine();
+		if (food.equalsIgnoreCase("n"))
+			if (dchoice.equalsIgnoreCase("s"))
+				System.out.println("Your order is 1 soda. The price is $2.25.");
+			else if (dchoice.equalsIgnoreCase("l"))
+				System.out.println("Your order is 1 lemonade. The price is $3.50.");
+		if (food.equalsIgnoreCase("y"))
+			System.out.print("Would you like (i)ce cream or (f)rench fries? ");
+			String fchoice = reader.nextLine();
+			if (fchoice.equalsIgnoreCase("i")){
+				price += 3.75;
+				if (dchoice.equalsIgnoreCase("s"))
+				System.out.println("Your order is 1 soda and 1 scoop of ice cream. The price is $"+price+".");
+				else if (dchoice.equalsIgnoreCase("l"))
+				System.out.println("Your order is 1 lemonade and 1 scoop of ice cream. The price is $"+price+".");
+			}
+			if (fchoice.equalsIgnoreCase("f")){
+				price += 5.00;
+				if (dchoice.equalsIgnoreCase("s"))
+				System.out.println("Your order is 1 soda and 1 order of french fries. The price is $"+price+".");
+				else if (dchoice.equalsIgnoreCase("l"))
+				System.out.println("Your order is 1 lemonade and 1 order of french fries. The price is $"+price+".");
+			}
+		}
+	}
+}
