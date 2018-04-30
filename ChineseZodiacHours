@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class ChineseZodiacHours{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		System.out.print("Please enter hour of the day: ");
+		int hour = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Please enter (A)M or (P)M: ");
+		String timeday = reader.nextLine();
+		switch (timeday){
+			case "P":
+			switch (hour){
+				case 1: System.out.println("Your Chinese zodiac is the Goat.");
+				break;
+				case 2: System.out.println("Your Chinese zodiac is the Goat.");
+				break;
+				case 3: System.out.println("Your Chinese zodiac is the Monkey.");
+				break;
+				case 4: System.out.println("Your Chinese zodiac is the Monkey.");
+				break;
+				case 5: System.out.println("Your Chinese zodiac is the Rooster.");
+				break;
+				case 6: System.out.println("Your Chinese zodiac is the Rooster.");
+				break;
+				case 7: System.out.println("Your Chinese zodiac is the Dog.");
+				break;
+				case 8: System.out.println("Your Chinese zodiac is the Dog.");
+				break;
+				case 9: System.out.println("Your Chinese zodiac is the Pig.");
+				break;
+				case 10: System.out.println("Your Chinese zodiac is the Pig.");
+				break;
+				case 11: System.out.println("Your Chinese zodiac is the Rat.");
+				break;
+				case 12: System.out.println("Your Chinese zodiac is the Horse.");
+				break;
+			}
+			break;
+			case "A":
+			switch (hour){
+				case 1: System.out.println("Your Chinese zodiac is the Ox.");
+				break;
+				case 2: System.out.println("Your Chinese zodiac is the Ox.");
+				break;
+				case 3: System.out.println("Your Chinese zodiac is the Tiger.");
+				break;
+				case 4: System.out.println("Your Chinese zodiac is the Tiger.");
+				break;
+				case 5: System.out.println("Your Chinese zodiac is the Rabbit.");
+				break;
+				case 6: System.out.println("Your Chinese zodiac is the Rabbit.");
+				break;
+				case 7: System.out.println("Your Chinese zodiac is the Dragon.");
+				break;
+				case 8: System.out.println("Your Chinese zodiac is the Dragon.");
+				break;
+				case 9: System.out.println("Your Chinese zodiac is the Snake.");
+				break;
+				case 10: System.out.println("Your Chinese zodiac is the Snake.");
+				break;
+				case 11: System.out.println("Your Chinese zodiac is the Horse.");
+				break;
+				case 12: System.out.println("Your Chinese zodiac is the Rat.");
+				break;
+			}
+		}
+	}
+}
