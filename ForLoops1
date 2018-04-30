@@ -1,0 +1,28 @@
+import java.lang.Math;
+import java.util.Scanner;
+
+public class ForLoops1{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		int score = 0;
+		int outstanding = 0;
+		int satisfactory = 0;
+		int unsatisfactory = 0;
+		System.out.print("How many scores would you like to input? ");
+		int number = reader.nextInt();
+		for (int n = 1; n <= number; n++){
+			System.out.print("\nPlease enter Test # "+n+": ");
+			score = (int)(Math.random()*41)+60;
+			System.out.print(score);
+			if (score > 89)
+				outstanding ++;
+			else if ((score > 69)&&(score < 90))
+				satisfactory ++;
+			else if ((score < 70)&&(score > 0))
+				unsatisfactory ++;
+		}
+		System.out.println("\nOutstanding Scores: "+outstanding+"\n");
+		System.out.println("Satisfactory Scores: "+satisfactory+"\n");
+		System.out.println("Unsatisfactory Scores: "+unsatisfactory+"\n");
+	}
+}
