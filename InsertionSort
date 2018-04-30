@@ -1,0 +1,20 @@
+public class InsertionSort{
+	public static void main(String[]args){
+		int[] arr = {15, 7, 23, 16, -7, 38};
+		//outer loop start at one after initial index
+		for (int i = 0; i < arr.length; i++){
+			int j = i;//set inner loop to outer loop index
+			while(j > 0&&(arr[j-1] > arr[j])){
+				//j>0 must be checked before all other conditions
+				//it then compares values
+				int temp = arr[j];
+				arr[j] = arr[j-1];
+				arr[j-1] = temp;
+				j--;//decreases one after each pass
+			}//while
+		}//outer for
+		for (int i = 0; i < arr.length; i++){
+			System.out.print(arr[i]+" \t");
+		}
+	}
+}
