@@ -1,0 +1,29 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class StringComparison{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		int one, two, three;
+		System.out.print("Number One: ");
+		one = reader.nextInt();
+		System.out.print("Number Two: ");
+		two = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Number Three: ");
+		three = reader.nextInt();
+		reader.nextLine();
+		if ((one>two)&&(two>three))
+			System.out.println(one+" "+two+" "+three);
+		if ((two>one)&&(one>three))
+			System.out.println(two+" "+one+" "+three);
+		if ((two>three)&&(three>one))
+			System.out.println(two+" "+three+" "+one);
+		if ((one>three)&&(three>two))
+			System.out.println(one+" "+three+" "+two);
+		if ((three>two)&&(two>one))
+			System.out.println(three+" "+two+" "+one);
+		if ((three>one)&&(one>two))
+			System.out.println(three+" "+one+" "+two);
+	}
+}
