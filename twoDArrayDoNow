@@ -1,0 +1,38 @@
+public class twoDArrayDoNow{
+	public static void main(String[]args){
+		//number1
+		int[] arr = new int[25];
+		for (int i=0; i<arr.length; i++){
+			arr[i] = i+1;
+			System.out.print(arr[i]+"\t");
+			if ((i+1)%5 == 0)
+				System.out.println();
+		}
+
+		int row2sum = 0;
+		int col3sum = 0;
+
+		for (int i=5; i<10; i++)
+			row2sum += arr[i];
+		System.out.println("\nThe sum of the 2nd row is: "+row2sum);
+		for (int i=2; i<arr.length; i+= 5)
+			col3sum += arr[i];
+		System.out.println("\nThe sum of the 3rd column is: "+col3sum+"\n");
+
+		//number2
+		for (int i=0; i<10; i++){
+			for (int j=0; j<10; j++)
+				System.out.print((i+1)*(j+1)+"\t");
+			System.out.println();
+		}
+
+		System.out.println();
+		int[][] arr5by5 = new int[5][5];
+		for (int row=0; row<arr5by5.length; row++){
+			for (int col=0; col<arr5by5[0].length; col++)
+				System.out.print((row+1)*(col+1)+"\t");
+			System.out.println();
+		}
+
+	}
+}
