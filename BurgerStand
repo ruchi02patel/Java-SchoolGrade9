@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class BurgerStand{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		double price = 0;
+		System.out.println("Welcome to Blaise's Burger Stand!\n");
+		System.out.println("Prices are as follows:");
+		System.out.println("Hamburger:\t$4.50");
+		System.out.println("Hot Dog:\t$3.00");
+		System.out.println("French Fries:\t$2.50");
+		System.out.println("Soda:\t\t$1.00");
+		System.out.print("\nWhat flavor would you like? ");
+		String flavor = reader.nextLine();
+		if (flavor.equalsIgnoreCase("hamburger")){
+			price += 4.50;
+			System.out.print("Would you like French fries? ");
+		}
+		else if (flavor.equalsIgnoreCase("hot dog")){
+			price += 3.00;
+			System.out.print("Would you like French fries? ");
+		}
+		String fries = reader.nextLine();
+		if (fries.equalsIgnoreCase("no")){
+			System.out.println("Total: $"+price);
+		}
+		else if ((fries.equalsIgnoreCase("yes"))&&((flavor.equalsIgnoreCase("hamburger")))){
+			price += 2.5;
+			System.out.print("Total: $"+price);
+		}
+		else if ((fries.equalsIgnoreCase("yes"))&&((flavor.equalsIgnoreCase("hot dog")))){
+			price += 2.5;
+			System.out.print("Would you like a soda? ");
+		}
+		String soda = reader.nextLine();
+		if (soda.equalsIgnoreCase("no")){
+			System.out.println("Total: $"+price);
+		}
+		else if (soda.equalsIgnoreCase("yes")){
+			price += 1.00;
+			System.out.println("Total: $"+price);
+		}
+	}
+}
