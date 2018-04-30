@@ -1,0 +1,72 @@
+import java.lang.Math;
+import java.util.Scanner;
+
+public class SelectionSortDay2{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		int[] numList = new int[100];
+		//fill numList
+		for (int i = 0; i < numList.length; i++)
+			numList[i] = (int)(Math.random()*500)+1;
+		//print numList
+		printList(numList);
+		System.out.println();
+		//sort numList
+		System.out.println("Sorted List: ");
+		sortList(numList);
+		int[] tempList = new int[100];
+		//fill and print tempList
+		int j = 1;
+		for (int i = 0; i < tempList.length; i++){
+			tempList[i] = numList[i];
+			System.out.print(tempList[i]+" ");
+			if (j%10 == 0)
+				System.out.println();
+			j++;
+		}
+
+		//ask user for number
+		System.out.print("\nEnter a number: ");
+		int input = reader.nextInt();
+		//call boolean
+		boolean search = searchList(tempList, input);
+		//output if number is in the list
+		if (search == true)
+			System.out.println(input+" is in the list!");
+		else
+			System.out.println(input+" is not in the list!");
+	}
+
+	public static void printList(int[] list){
+		int j = 1;
+		for (int i = 0; i < list.length; i++){
+			System.out.print(list[i]+" ");
+			if (j%10 == 0)
+				System.out.println();
+			j++;
+		}
+	}
+
+	public static int[] sortList(int[] list){
+		for (int i = 0; i < list.length-1; i++){
+			int minIndex = i;
+			for (int j = i+1; j < list.length; j++){
+				if (list[j] < list[minIndex])
+					minIndex = j;
+			}
+			int temp = list[i];
+			list[i] = list[minIndex];
+			list[minIndex] = temp;
+		}
+		return list;
+	}
+
+	public static boolean searchList(int[] list, int input){
+		boolean search = false;
+		for (int i = 0; i < list.length; i++){
+			if (input == list[i])
+				search = true;
+		}
+		return search;
+	}
+}
