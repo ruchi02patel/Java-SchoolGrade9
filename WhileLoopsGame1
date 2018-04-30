@@ -1,0 +1,47 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class WhileLoopsGame1{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Welcome to the multiplication tutor!");
+		System.out.print("What is your name? ");
+		String name = reader.nextLine();
+		System.out.println("Let's see how good you are at multiplication, "+name+".");
+		System.out.println("Type (-1) at any time to exit and see your score.");
+
+		int right = 0;
+		double total = 0;
+		int answer = 0;
+
+		do{
+			int num1 = (int)(Math.random()*10)+1;
+			int num2 = (int)(Math.random()*10)+1;
+			System.out.print("What is "+num1+" * "+num2+"? ");
+			answer = reader.nextInt();
+			reader.nextLine();
+
+			if (answer == (num1*num2)){
+				System.out.println("Correct!");
+				right++;
+				total++;
+			}
+
+			else if ((answer != (num1*num2))&&(answer != -1)){
+				System.out.println("Sorry! The answer was "+(num1*num2)+".");
+				total++;
+			}
+		}while (answer != -1);
+
+		System.out.println("Let's see, "+name+"! You got "+right+" out of "+(int)total+" correct.");
+
+		if (((right/total)*100) == 100)
+			System.out.println("You've mastered multipliciation!");
+
+		else if (((right/total)*100) <= 75)
+			System.out.println("You REALLY need to practice!");
+
+		else if ((((right/total)*100) < 100)||(((right/total)*100) > 75))
+			System.out.println("You almost got it! Keep working!");
+	}
+}
