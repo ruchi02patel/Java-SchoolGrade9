@@ -1,0 +1,63 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class CashRegisterPt2{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		double price;
+		int dollars, quarters, dimes, nickels, pennies;
+		System.out.print("Enter price: ");
+		price = reader.nextDouble();
+		reader.nextLine();
+		System.out.print("Enter dollars: ");
+		dollars = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Enter quarters: ");
+		quarters = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Enter dimes: ");
+		dimes = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Enter nickels: ");
+		nickels = reader.nextInt();
+		reader.nextLine();
+		System.out.print("Enter pennies: ");
+		pennies = reader.nextInt();
+		reader.nextLine();
+		change(price, dollars, quarters, dimes, nickels, pennies);
+	}
+	public static void change(double price, int dollars, int quarters, int dimes, int nickels, int pennies){
+		double q = quarters*(0.25);
+		double di = dimes*(0.1);
+		double n = nickels*(.05);
+		double p = pennies*(.01);
+		double change = (dollars+q+di+n+p)-price;
+		System.out.println("Your change: "+change);
+		System.out.print(giveDollars(change));
+	}
+	public static int givePennies(int qaz){
+		int 1p = (qaz%5);
+		System.out.println("Return "+1p+" penn(y/ies)");
+	}
+	public static int giveNickels(int zxcvbnm){
+		int 1n = (zxcvbnm%10)/5;
+		System.out.println("Return "+1n+" nickel(s)");
+		return givePennies(zxcvbnm%10);
+	}
+	public static int giveDimes(int asdfghjkl){
+		int 1di = (asdfghjkl%25)/10;
+		System.out.println("Return "+1di+" dime(s)");
+		return giveNickels(asdfghjkl%25);
+	}
+	public static int giveQuarters(int qwertyuiop){
+		int 1q = (qwertyuiop%100)/25;
+		System.out.println("Return "+1q+" quarter(s)");
+		return giveDimes(qwertyuiop%100);
+	}
+	public static int giveDollars(double change){
+		int c = change*100;
+		int 1dol = c/100;
+		System.out.println("Return "+1dol+" dollar(s)");
+		return giveQuarters(c);
+	}
+}
