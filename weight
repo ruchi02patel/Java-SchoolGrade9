@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class weight{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		System.out.print("Please enter your weight in pounds on Earth: ");
+		double ew = reader.nextInt();
+		reader.nextLine();
+		System.out.println("\na. Mercury");
+		System.out.println("b. Venus");
+		System.out.println("c. Earth");
+		System.out.println("d. Mars");
+		System.out.println("e. Jupiter");
+		System.out.println("f. Saturn");
+		System.out.println("g. Uranus");
+		System.out.println("h. Neptune");
+		System.out.println("i. Pluto\n");
+		System.out.print("Please select which planet you intend to visit: ");
+		String place = reader.nextLine();
+		System.out.println("\nYour weight on Earth is "+ew+" pounds.");
+		if (place.equals("a"))
+		System.out.println("Your weight on Mercury would be "+(ew*.38)+" pounds.");
+		else if (place.equals("b"))
+		System.out.println("Your weight on Venus would be "+(ew*.78)+" pounds.");
+		else if (place.equals("c"))
+		System.out.println("Your weight on Earth would be "+(ew)+" pounds.");
+		else if (place.equals("d"))
+		System.out.println("Your weight on Mars would be "+(ew*.39)+" pounds.");
+		else if (place.equals("e"))
+		System.out.println("Your weight on Jupiter would be "+(ew*2.65)+" pounds.");
+		else if (place.equals("f"))
+		System.out.println("Your weight on Saturn would be "+(ew*1.17)+" pounds.");
+		else if (place.equals("g"))
+		System.out.println("Your weight on Uranus would be "+(ew*1.05)+" pounds.");
+		else if (place.equals("h"))
+		System.out.println("Your weight on Neptune would be "+(ew*1.23)+" pounds.");
+		else if (place.equals("i"))
+		System.out.println("Your weight on Pluto would be "+(ew*.05)+" pounds.");
+	}
+}
