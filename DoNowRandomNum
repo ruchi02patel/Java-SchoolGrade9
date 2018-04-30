@@ -1,0 +1,35 @@
+import java.lang.Math;
+
+public class DoNowRandomNum{
+	public static void main(String[]args){
+		int highest = 1;
+		int[] numArray = new int[10];
+
+		for (int i = 0; i < 10; i++){
+			numArray[i] = (int)(Math.random()*100)+1;
+			System.out.println(numArray[i]);
+
+			if (numArray[i] > highest)
+				highest = numArray[i];
+		}
+
+		System.out.println("The 7th number is "+numArray[6]+".");
+		System.out.println("The highest number is "+highest+".");
+
+		/*for (int i = 0; i < 10; i++){
+
+			int num = (int)(Math.random()*100)+1;
+
+			System.out.println(num);
+
+			if (num > highest)
+				highest = num;
+
+			if (i == 6)
+				System.out.println("The 7th number is "+num+".");
+		}
+
+		System.out.println("The highest number is "+highest+".");*/
+
+	}
+}
