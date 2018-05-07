@@ -1,0 +1,118 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Battleship{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		char[][] ocean = new char[7][7];
+		int guessRow = 0;
+		int guessCol = 0;
+		int games = 0;
+
+		//opening to game
+		System.out.println("Welcome to Battleship!");
+		AsciiArtbegin();
+		System.out.println("You have 7 guesses to sink the ship! Good luck!\n");
+
+		//print initial board
+		ocean = initBoard(ocean);
+		printBoard(ocean);
+
+		do{
+			do{
+				//invalid
+				if ((guessRow > ocean.length-1)||(guessCol > ocean[0].length-1))
+					System.out.println("Sorry, that's an invalid input.");
+
+				//ask for position
+				System.out.print("Enter a row: ");
+				guessRow = reader.nextInt();
+				System.out.print("Enter a column: ");
+				guessCol = reader.nextInt();
+				System.out.println();
+			}while ((guessRow > ocean.length-1)||(guessCol > ocean[0].length-1)||(ocean[guessRow][guessCol] == 'X'));
+
+			//mark guessed position and print guess
+			if (ocean[guessRow][guessCol] != 'b')
+				ocean[guessRow][guessCol] = 'X';
+			printBoard(ocean);
+
+			//number of games
+			games++;
+		}while ((ocean[guessRow][guessCol] != 'b')&&(games < 7)); //do loop
+
+		//end of the game
+		if (ocean[guessRow][guessCol] == 'b')
+			System.out.println("\nCongrats! You sunk the ship!");
+		else if ((games == 7)&&(ocean[guessRow][guessCol] != 'b'))
+			System.out.println("\nSorry, you took too many tries!");
+		AsciiArtend();
+
+	}//main
+
+
+	public static void AsciiArtbegin(){
+		System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - -");
+		System.out.println(" _           _   _   _           _     _       ");
+		System.out.println("| |         | | | | | |         | |   (_)      ");
+		System.out.println("| |__   __ _| |_| |_| | ___  ___| |__  _ _ __  ");
+		System.out.println("| '_ \\ / _` | __| __| |/ _ \\/ __| '_ \\| | '_ \\ ");
+		System.out.println("| |_) | (_| | |_| |_| |  __/\\__ \\ | | | | |_) |");
+		System.out.println("|_.__/ \\__,_|\\__|\\__|_|\\___||___/_| |_|_| .__/ ");
+		System.out.println("                                        | |    ");
+        System.out.println("                                        |_|    ");
+		System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - -");
+	}//AsciiArt begin
+
+
+	public static char[][] initBoard(char[][] arr){
+		for (int row = 0; row < arr.length; row++){
+			for (int col = 0; col < arr[0].length; col++)
+				arr[row][col] = '~';
+		}
+
+		//I hard coded the ship but I randomly assigned it in comments
+		//I wasn't sure which one you wanted because 5 points goes to randomly assigning the ship
+		//but at the bottom it says the hard code its position
+
+		//position of boat
+		arr[4][5] = 'b';
+		//int bRow = (int)(Math.random()*7);
+		//int bCol = (int)(Math.random()*7);
+		//arr[bRow][bCol] = 'b';
+
+		return arr;
+	}//initBoard
+
+
+	public static char[][] printBoard(char[][] arr){
+		for (int row = 0; row < arr.length; row++){
+			for (int col = 0; col < arr[0].length; col++){
+				if (arr[row][col] == 'b')
+					System.out.print("~ ");
+				else
+					System.out.print(arr[row][col]+" ");
+			}
+			System.out.println();
+		}
+
+		return arr;
+	}//printBoard
+
+
+	public static void AsciiArtend(){
+		System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
+		System.out.println("                                    # #  ( ) 								");
+		System.out.println("                                 ___#_#___|__								");
+		System.out.println("                             _  |____________|  _							");
+		System.out.println("                      _=====| | |            | | |==== _					");
+		System.out.println("                =====| |.---------------------------. | |====				");
+		System.out.println("  <--------------------'   .  .  .  .  .  .  .  .   '--------------/		");
+		System.out.println("    \\                                                             /		");
+		System.out.println("     \\___________________________________________________________/			");
+		System.out.println(" wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww		");
+	 	System.out.println("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww	");
+		System.out.println("  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww 		");
+		System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
+	}//AsciiArt end
+}
