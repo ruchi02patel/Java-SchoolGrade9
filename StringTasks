@@ -1,0 +1,141 @@
+public class StringTasks{
+	public static void main(String[]args){
+
+		String sen = "The five boxing wizards jump quickly";
+
+		//print out backwards
+		for (int i = sen.length()-1; i >=0 ; i--)
+			System.out.print(sen.charAt(i));
+
+		System.out.println("\n");
+
+		//backwards with saved val w/o temp
+		System.out.println(backWards(sen));
+
+		System.out.println();
+
+		//print in caps
+		System.out.println(sen.toUpperCase());
+
+		System.out.println();
+
+		//replace vowels with W
+		System.out.println(noVowels(sen));
+
+		System.out.println();
+
+		//start with removing first character
+		System.out.println(everyOtherFirst(sen));
+
+		System.out.println();
+
+		//start with removing second character
+		System.out.println(everyOtherSecond(sen));
+
+		System.out.println();
+
+		//counting the number of words
+		System.out.println("Number of words: "+countWords(sen));
+
+		System.out.println();
+
+		//average length of words
+		System.out.println("Average word length: "+wordLengthAvg(sen));
+
+		System.out.println();
+
+		//switch order of words
+		String arr[] = backWardsList(sen);
+		for (int i = 0; i < arr.length; i++)
+			System.out.print(arr[i]+" ");
+
+		System.out.println();
+
+	}//main
+
+	public static String backWards(String sentence){
+		for (int i = 0; i < sentence.length()-1; i++){
+			sentence = (sentence.substring(1, sentence.length()-i))+(sentence.substring(0, 1))+(sentence.substring(sentence.length()-i, sentence.length()));
+		}
+
+		return sentence;
+	}//backWards
+
+	public static String noVowels(String sentence){
+		for (int i = 0; i < sentence.length(); i++){
+			if ((sentence.substring(i, i+1).equals("a"))||(sentence.substring(i, i+1).equals("e"))||(sentence.substring(i, i+1).equals("i"))||(sentence.substring(i, i+1).equals("o"))||(sentence.substring(i, i+1).equals("u")))
+				sentence = (sentence.substring(0,i)+"W"+(sentence.substring(i+1)));
+		}
+		return sentence;
+	}//noVowels
+
+	public static String everyOtherFirst(String sentence){
+		int i = 0;
+		String newSentence = "";
+		while(i < sentence.length()){
+			if (i%2 == 0)
+				newSentence = newSentence + sentence.charAt(i);
+			i++;
+		}
+		return newSentence;
+	}//everyOtherFirst
+
+	public static String everyOtherSecond(String sentence){
+		int i = 0;
+		String newSentence = "";
+		while(i < sentence.length()){
+			if (i%2 == 1)
+				newSentence = newSentence + sentence.charAt(i);
+			i++;
+		}
+		return newSentence;
+	}//everyOtherSecond
+
+
+	public static int countWords(String sentence){
+		//start at 1 because last word doesn't have a space after
+		int wordNum = 1;
+		for (int i = 0; i < sentence.length(); i++){
+			if (sentence.charAt(i) == ' ')
+				wordNum++;
+		}
+		return wordNum;
+	}//countWords
+
+	public static double wordLengthAvg(String sentence){
+		double wordNum = 1;
+		double wordCount = 0;
+		for (int i = 0; i < sentence.length(); i++){
+			if(sentence.charAt(i) != ' ')
+				wordCount++;
+			else
+				wordNum++;
+		}
+
+		double avg = wordCount/wordNum;
+
+		return avg;
+	}//wordLengthAvg
+
+	public static String[] backWardsList(String sentence){
+		String[] arr = new String[countWords(sentence)];
+		int j = 0;
+		for (int i = 0; i < sentence.length(); i++){
+			if (sentence.charAt(i) == ' '){
+				arr[j] = sentence.substring(0, i);
+				j++;
+				sentence = sentence.substring(i+1);
+				i = 0;
+			}
+			else if (sentence.indexOf(" ") == (-1))
+				arr[j] = sentence;
+		}
+
+		for  (int i = 0; i < arr.length/2; i++){
+			String temp = arr[i];
+			arr[i] = arr[arr.length-1-i];
+			arr[arr.length-1-i] = temp;
+		}
+		return arr;
+	}//backWardsList
+}
