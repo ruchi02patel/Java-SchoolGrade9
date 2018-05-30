@@ -1,0 +1,169 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Hangman{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+
+		//start
+		System.out.println("WELCOME TO HANGMAN");
+		System.out.println("    _________");
+		System.out.println("    |         |");
+		System.out.println("    |         0");
+		System.out.println("    |        /|\\");
+		System.out.println("    |        / \\");
+		System.out.println("    |");
+		System.out.println("    |");
+
+		//input number of games
+		System.out.print("How many games would you like to play? ");
+		int gameNum = reader.nextInt();
+		int gameCount = 0;
+
+		//loop for number of games
+		while (gameCount < gameNum){
+
+			//reset all variables
+			String[] wordSelect = {"hat", "yacht", "strength", "superman", "architect", "government", "youthfully", "psychologist", "anthropomorphism", "hippopotomonstrosesquippedaliophobia"};
+			int wordNum;
+			String word;
+			char[] wrongGuess = {' ', ' ', ' ', ' ', ' ', ' '};
+			int wrongGuesscount;
+			boolean gameOver1 = false;
+			boolean gameOver2 = false;
+
+			System.out.println("This is Game "+(gameCount+1)+"\n");
+
+			//choose word for answer
+			do{
+				System.out.print("Enter a number from 1 through 10(easy to hard): ");
+				wordNum = reader.nextInt();
+				reader.nextLine();
+			}while((wordNum<1)||(wordNum>10));
+
+			//print it out and initialize the board
+			word = wordSelect[wordNum-1];
+			String[] currBoard = new String[word.length()];
+			System.out.println("The word is \""+word+"\".\n");
+
+			//initial display
+			initBoard(word, currBoard);
+			for (int i = 0; i < currBoard.length; i++)
+				System.out.print(currBoard[i]+" ");
+
+			while((gameOver1 == false)&&(gameOver2 == false)){
+
+				//guess letters
+				System.out.print("\nGuess a letter: ");
+				String guess = reader.nextLine();
+				guess = guess.toLowerCase();
+				char guessChar = guess.charAt(0);
+
+				//check in String
+				checkGuess(word, guessChar, currBoard);
+
+				//print board
+				for (int i = 0; i < currBoard.length; i++)
+					System.out.print(currBoard[i]+" ");
+
+				//print wrong guesses
+				System.out.print("\nIncorrect Guesses: ");
+				wrongGuess = IncorrectGuesses(word, guessChar, wrongGuess);
+
+				for (int i = 0; i < wrongGuess.length; i++)
+					System.out.print(wrongGuess[i]+ " ");
+				System.out.println();
+
+				//print number of wrong guesses
+				wrongGuesscount = 0;
+				for (int i = 0; i < wrongGuess.length; i++){
+					if (wrongGuess[i] != ' ')
+						wrongGuesscount++;
+				}
+				System.out.println("You guessed ("+wrongGuesscount+") incorrect guesses. You have ("+(6-wrongGuesscount)+") guesses left.");
+
+				gameOver1 = true;
+				gameOver2 = true;
+
+				//check if word is completely guessed
+				for (int i = 0; i < currBoard.length; i++){
+					if (currBoard[i] == "_ ")
+						gameOver1 = false;
+				}
+
+				//make gameOver2 false if guess is wrong
+				for (int j = 0; j < wrongGuess.length; j++){
+					if (wrongGuess[j] == ' ')
+						gameOver2 = false;
+				}
+
+			}//inner while loop
+
+			//ending statement
+			if (gameOver1 == true){
+				System.out.println("\nCongratulations, you win!");
+				System.out.println("                                 _         _       _   _                 ");
+				System.out.println("				| |       | |     | | (_)                ");
+				System.out.println("  ___ ___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_ _  ___  _ __  ___ ");
+				System.out.println(" / __/ _ \\| \'_ \\ / _` | \'__/ _` | __| | | | |/ _` | __| |/ _ \\| \'_ \\/ __|");
+				System.out.println("| (_| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \\__ \\");
+				System.out.println(" \\___\\___/|_| |_|\\__, |_|  \\__,_|\\__|\\__,_|_|\\__,_|\\__|_|\\___/|_| |_|___/");
+				System.out.println("                  __/ |                                                  ");
+				System.out.println("                 |___/     ");
+			}
+			else if (gameOver2 == true){
+				System.out.println("\nSorry, you lose!");
+				System.out.println("The word was \""+word+"\".");
+				System.out.println("    .-\"\"\"\"\"\"-.");
+				System.out.println("   .\'          \'.");
+				System.out.println("  /   O      O   \\");
+				System.out.println(" :           `    :");
+				System.out.println(" |                | ");
+				System.out.println(" :    .------.    :");
+				System.out.println("  \\  \'        \'  /");
+				System.out.println("   \'.          .\'");
+				System.out.println("     \'-......-\'");
+			}
+
+			gameCount++;
+
+		}//game while Loop
+	}//main
+
+	public static String[] initBoard(String word, String[] currBoard){
+		for (int i = 0; i < word.length(); i++)
+			currBoard[i] = "_ ";
+		return currBoard;
+	}//initBoard
+
+	public static void checkGuess(String w, char gC, String[] cB){
+		for (int i = 0; i < w.length(); i++){
+			if (w.toLowerCase().charAt(i) == gC)
+				cB[i] = gC+" ";
+		}
+
+	}//checkGuess
+
+	public static char[] IncorrectGuesses(String w, char gC, char[] wGuess){
+			boolean inWord = false;
+			boolean inArray = false;
+
+			//check for guess in word
+			for (int i = 0; i < w.length(); i++){
+				if (w.toLowerCase().charAt(i) == gC)
+					inWord = true;
+			}
+
+			//put wrong guesses in wGuess
+			if (inWord==false){
+				for (int i = 0; i < wGuess.length; i++)
+					if((wGuess[i] == ' ')&&(inArray == false)){
+						wGuess[i] = gC;
+						inArray = true;
+					}
+			}
+
+		return wGuess;
+	}//IncorrectGuesses
+
+}
