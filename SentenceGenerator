@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class SentenceGenerator{
+	public static void main(String[]args){
+		Scanner reader = new Scanner(System.in);
+		String sen = "avan! loki look like, sid sloth..?";
+
+		//remove punctuation
+		String newSen = "";
+		for (int i = 0; i < sen.length(); i++){
+			if ((sen.charAt(i) != '.')&&(sen.charAt(i) != ',')&&(sen.charAt(i) != '!')&&(sen.charAt(i) != '?')&&(sen.charAt(i) != '\''))
+				newSen = newSen+sen.charAt(i);
+		}
+		System.out.println(newSen);
+
+		//caps
+		System.out.println(newSen.toUpperCase());
+
+		//count words
+		int wordNum = 0;
+		for (int i = 0; i < newSen.length(); i++)
+			if (newSen.charAt(i) == ' ')
+				wordNum++;
+		//add one because last word doesn't have space after
+		wordNum++;
+		System.out.println("Number of words: "+wordNum);
+
+		//declare array
+		String[] arr = new String[wordNum];
+
+		//store words in array
+		int j = 0;
+		int k = 0;
+		for (int i = 0; i < newSen.length(); i++){
+			if (newSen.charAt(i) == ' '){
+				arr[j] = newSen.substring(k, i);
+				j++;
+				k = i+1;
+			}
+		}
+		arr[wordNum-1] = newSen.substring(k);
+		System.out.println(arr.length);
+
+		//print array
+		for (int i = 0; i < arr.length; i++)
+			System.out.print(arr[i]+" ");
+		System.out.println();
+
+		//sort words
+		String temp = "";
+
+		for (int i = 0; i < arr.length; i++){
+			int minIndex = i;
+			for (int m = i+1; m < arr.length; m++){
+				if (arr[i].compareTo(arr[m]) > 0)
+					minIndex = m;
+			}
+			temp = arr[i];
+			arr[i] = arr[minIndex];
+			arr[minIndex] = temp;
+		}
+
+		for (int i = 0; i < arr.length; i++)
+			System.out.print(arr[i]+" ");
+
+		//prefill array
+		int[] parArr = new int[arr.length];
+		for (int i = 0; i < parArr.length; i++)
+			parArr[i] = 0;
+	}
+}
